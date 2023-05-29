@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
     this.http
       .get('https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json')
       .pipe(
-         map(responseData => {
+         map((responseData) => {
            const postArray = [];
            for (const key in  responseData) {
              if (responseData.hasOwnProperty(key)) {
@@ -57,3 +57,4 @@ export class AppComponent implements OnInit {
 
     }    
 }   
+
