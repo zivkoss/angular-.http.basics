@@ -16,7 +16,12 @@ export class AppComponent implements OnInit {
   onCreatePost(postData: { title: string; content: string }) {
     // Send Http request
     // console.log(postData);
-    this.http.post('https://github.com/zivkoss/angular-.http.basics.git/posts.json', postData);
+    this.http.post(
+      'https://github.com/zivkoss/angular-.http.basics.git/posts.json',
+       postData
+    ).subscribe(responseDate => {
+      console.log(responseDate)
+    });
   }
 
   onFetchPosts() {
