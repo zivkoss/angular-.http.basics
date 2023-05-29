@@ -11,6 +11,7 @@ import { Post } from './post.model'
 })
 export class AppComponent implements OnInit {
   loadedPosts: Post[] = [];
+  isFatching = false;
 
   constructor(private http: HttpClient) {}
 
@@ -39,8 +40,11 @@ export class AppComponent implements OnInit {
   }
 
   private fetchPosts() {
+    this.isFatching = true;
     this.http
-      .get<{ [key: string]: Post }>('https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json')
+      .get<{ [key: string]: Post }>(
+        'https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json'
+        )
       .pipe(
          map(responseData => {
            const postsArray: Post[] = [];
