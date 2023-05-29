@@ -31,6 +31,11 @@ export class AppComponent implements OnInit {
   }
 
   onClearPosts() {
-    // Send Http request
-  }
-}
+    this.http
+      .get('https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json')
+      .subscribe(posts => {
+        console.log(posts)
+      });
+
+    }    
+}   
