@@ -43,13 +43,13 @@ export class AppComponent implements OnInit {
       .get<{ [key: string]: Post }>('https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json')
       .pipe(
          map(responseData => {
-           const postArray: Post[] = [];
+           const postsArray: Post[] = [];
            for (const key in  responseData) {
              if (responseData.hasOwnProperty(key)) {
-                postArray.push({ ...responseData[key], id: key });
+                postsArray.push({ ...responseData[key], id: key });
              }
            }
-           return postArray;
+           return postsArray;
          })
         ) 
         .subscribe(posts => {
