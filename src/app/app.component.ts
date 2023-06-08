@@ -36,9 +36,7 @@ export class AppComponent implements OnInit {
 
   private fetchPosts() {
     this.isFetching = true;
-   
-
-    }    
+  }
 }   
 
 
