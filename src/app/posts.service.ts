@@ -21,7 +21,7 @@ export class PostsService {
   });
 } 
 
-fetchPoats() {
+fetchPosts() {
     this.http
     .get<{ [key: string]: Post }>(
       'https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json'
