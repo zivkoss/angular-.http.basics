@@ -36,9 +36,6 @@ fetchPosts() {
          }
          return postsArray;
        })
-      ) 
-      .subscribe(posts => {
-        
-      });
+      );
    }
 }
