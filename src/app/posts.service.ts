@@ -22,7 +22,7 @@ export class PostsService {
 } 
 
 fetchPosts() {
-    this.http
+    return this.http
     .get<{ [key: string]: Post }>(
       'https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json'
       )
