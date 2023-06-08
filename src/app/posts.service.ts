@@ -2,4 +2,12 @@ import { Injectable } from '@angular/core';
 import { Post } from './post.model';
 
 @Injectable({providedIn: 'root'})
-export class PostsService {} 
+export class PostsService {
+   createAndStorePost(title: string, content: string) { 
+    // ...
+} 
+
+fetchPoats() {
+    
+   }
+}
