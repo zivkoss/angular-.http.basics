@@ -36,26 +36,43 @@ export class AppComponent implements OnInit {
 
   private fetchPosts() {
     this.isFetching = true;
-    this.http
-      .get<{ [key: string]: Post }>(
-        'https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json'
-        )
-      .pipe(
-         map(responseData => {
-           const postsArray: Post[] = [];
-           for (const key in  responseData) {
-             if (responseData.hasOwnProperty(key)) {
-                postsArray.push({ ...responseData[key], id: key });
-             }
-           }
-           return postsArray;
-         })
-        ) 
-        .subscribe(posts => {
-          this.isFetching = false;
-          this.loadedPosts = posts;
-        });
+   
 
     }    
 }   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// this.http
+//       .get<{ [key: string]: Post }>(
+//         'https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json'
+//         )
+//       .pipe(
+//          map(responseData => {
+//            const postsArray: Post[] = [];
+//            for (const key in  responseData) {
+//              if (responseData.hasOwnProperty(key)) {
+//                 postsArray.push({ ...responseData[key], id: key });
+//              }
+//            }
+//            return postsArray;
+//          })
+//         ) 
+//         .subscribe(posts => {
+//           this.isFetching = false;
+//           this.loadedPosts = posts;
+//         });
