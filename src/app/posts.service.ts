@@ -38,4 +38,7 @@ fetchPosts() {
        })
       );
    }
+   deletePosts() {
+    return this.http.delete('https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json')
+   }
 }
