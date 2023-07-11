@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 import { Post } from './post.model'
 import { PostsService } from './posts.service';
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit {
   loadedPosts: Post[] = [];
   isFetching = false;
   error = null;
+  private errorSub: Subscription;
 
   constructor(private http: HttpClient, private postsService: PostsService) {}
 
