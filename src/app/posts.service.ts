@@ -13,7 +13,7 @@ export class PostsService {
     const postData: Post = { title: title, content: content };
     this.http
     .post<{ name: string }>(
-    'https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json',
+    'https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json',
      postData
   )
   .subscribe(responseData => {
@@ -24,7 +24,7 @@ export class PostsService {
 fetchPosts() {
     return this.http
     .get<{ [key: string]: Post }>(
-      'https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json'
+      'https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json'
       )
     .pipe(
        map(responseData => {
@@ -39,6 +39,6 @@ fetchPosts() {
       );
    }
    deletePosts() {
-    return this.http.delete('https://angular-http-basicsss-default-rtdb.firebaseio.com//posts.json')
+    return this.http.delete('https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json')
    }
 }
