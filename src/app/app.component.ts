@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
       this.isFetching = false;
       this.loadedPosts = posts;
     }, error => {
-
+       this.error = error.message;
     });
   }
 
