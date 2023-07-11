@@ -7,8 +7,7 @@ import { Post } from './post.model';
 
 @Injectable({providedIn: 'root'})
 export class PostsService {
-   
-   error = new Subject
+   error = new Subject<String>();
 
    constructor(private http: HttpClient) {}
    
@@ -19,9 +18,14 @@ export class PostsService {
     'https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json',
      postData
   )
-  .subscribe(responseData => {
-    console.log(responseData);
-  });
+  .subscribe(
+    responseData => {
+      console.log(responseData);
+    },
+    error => {
+      this.error.next(error.message);
+    }
+  );
 } 
 
 fetchPosts() {
