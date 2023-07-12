@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpEventType } from '@angular/common/http';
 import { map, catchError, tap } from 'rxjs/operators';
 import { Subject, throwError } from 'rxjs';
 
 import { Post } from './post.model';
+import { ConsoleReporter } from 'jasmine';
 
 @Injectable({providedIn: 'root'})
 export class PostsService {
@@ -59,7 +60,7 @@ fetchPosts() {
        })
       );
    }
-   
+
    deletePosts() {
     return this.http.delete('https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json',
     {
@@ -68,6 +69,12 @@ fetchPosts() {
     .pipe(
       tap(event => {
         console.log(event);
+        if (event.type === HttpEventType.Sent) {
+          // ...
+        }
+        if (event.type === HttpEventType.Response) {
+          console.log(event.body);
+        }
       })
     );
    }
