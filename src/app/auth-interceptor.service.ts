@@ -5,4 +5,4 @@ export class AuthInterceptorService implements HttpInterceptor {
         console.log('Request is on its way');
         return next.handle(req);
     }
-}
+}  
