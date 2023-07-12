@@ -40,7 +40,8 @@ fetchPosts() {
       'https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json',
       {
         headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
-        params: searchParams
+        params: searchParams,
+        responseType: 'json'
       }
       )
     .pipe(
