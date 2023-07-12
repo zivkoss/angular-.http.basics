@@ -29,12 +29,15 @@ export class PostsService {
 } 
 
 fetchPosts() {
+    let searchParams = new HttpParams();
+    searchParams = searchParams.append('print', 'pretty');
+    searchParams = searchParams.append('custom', 'key');
     return this.http
     .get<{ [key: string]: Post }>(
       'https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json',
       {
         headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
-        params: new HttpParams().set('print', 'pretty')
+        params: searchParams
       }
       )
     .pipe(
