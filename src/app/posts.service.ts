@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Subject, throwError } from 'rxjs';
 
@@ -33,7 +33,8 @@ fetchPosts() {
     .get<{ [key: string]: Post }>(
       'https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json',
       {
-        headers: new HttpHeaders({ 'Custom-Header': 'Hello' })
+        headers: new HttpHeaders({ 'Custom-Header': 'Hello' }),
+        params: new HttpParams().set('print', 'pretty')
       }
       )
     .pipe(
