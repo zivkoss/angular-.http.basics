@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 import { Subject, throwError } from 'rxjs';
 
 import { Post } from './post.model';
@@ -60,6 +60,10 @@ fetchPosts() {
       );
    }
    deletePosts() {
-    return this.http.delete('https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json')
+    return this.http.delete('https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json',
+    {
+      observe: 'events'
+    }
+    );
    }
 }
