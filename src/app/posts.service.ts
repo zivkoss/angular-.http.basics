@@ -61,9 +61,11 @@ fetchPosts() {
    }
 
    deletePosts() {
-    return this.http.delete('https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json',
+    return this.http
+    .delete('https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json',
     {
-      observe: 'events'
+      observe: 'events',
+      responseType: 'text'
     })
     .pipe(
       tap(event => {
