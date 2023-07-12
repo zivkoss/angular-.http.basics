@@ -59,11 +59,16 @@ fetchPosts() {
        })
       );
    }
+   
    deletePosts() {
     return this.http.delete('https://nemanj-angular0097-default-rtdb.firebaseio.com//posts.json',
     {
       observe: 'events'
-    }
+    })
+    .pipe(
+      tap(event => {
+        console.log(event);
+      })
     );
    }
 }
