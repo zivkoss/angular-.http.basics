@@ -4,7 +4,6 @@ import { map, catchError, tap } from 'rxjs/operators';
 import { Subject, throwError } from 'rxjs';
 
 import { Post } from './post.model';
-import { ConsoleReporter } from 'jasmine';
 
 @Injectable({providedIn: 'root'})
 export class PostsService {
